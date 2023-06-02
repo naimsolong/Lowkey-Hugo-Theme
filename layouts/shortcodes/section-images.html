@@ -1,3 +1,5 @@
+{{ $bigHeadline := .Get "bigHeadline"}}
+
 {{ $headline1 := .Get "headline1" }}
 {{ $emoji1 := .Get "emoji1" }}
 {{ $description1 := .Get "description1" }}
@@ -23,86 +25,90 @@
 {{ $alt4 := .Get "alt4" }}
 
 
-<h3>What Do I Offer</h3>
-
-<div class="flex flex-col items-center bg-white md:flex-row w-full text-center">
-    {{ with $description1 }}
-    <div class="block px-3">
-        {{ with $image1 }}
-        <img
-          alt="{{ $alt1 }}"
-          src="{{ $image1 }}"
-          class="h-32 w-32 object-cover mx-auto"
-        />
-        {{ end }}
-      
-        <h5 class="mt-4 text-lg font-bold text-gray-900 sm:text-xl">
-            {{ $headline1 }} {{ $emoji1 }}
-        </h5>
-      
-        <p class="mt-1 max-w-sm text-sm text-gray-700">
-            {{ $description1 }}
-        </p>
-    </div>
+<div class="my-9">
+    {{ with $bigHeadline }}
+        <h3>{{ $bigHeadline }}</h3>
     {{ end }}
 
-    {{ with $description2 }}
-    <div class="block px-3">
-        {{ with $image2 }}
-        <img
-          alt="{{ $alt2 }}"
-          src="{{ $image2 }}"
-          class="h-32 w-32 object-cover mx-auto"
-        />
+    <div class="columns-1 sm:columns-2 md:columns-4 items-center w-full text-center">
+        {{ with $description1 }}
+        <div class="block px-3">
+            {{ with $image1 }}
+            <img
+            alt="{{ $alt1 }}"
+            src="{{ $image1 }}"
+            class="h-32 w-32 object-cover mx-auto"
+            />
+            {{ end }}
+        
+            <h5 class="mt-4 text-lg font-bold text-gray-900 sm:text-xl">
+                {{ $headline1 }} {{ $emoji1 }}
+            </h5>
+        
+            <p class="mt-1 max-w-sm text-sm text-gray-700">
+                {{ $description1 }}
+            </p>
+        </div>
         {{ end }}
-      
-        <h5 class="mt-4 text-lg font-bold text-gray-900 sm:text-xl">
-            {{ $headline2 }} {{ $emoji2 }}
-        </h5>
-      
-        <p class="mt-1 max-w-sm text-sm text-gray-700">
-            {{ $description2 }}
-        </p>
-    </div>
-    {{ end }}
 
-    {{ with $description3 }}
-    <div class="block px-3">
-        {{ with $image3 }}
-        <img
-          alt="{{ $alt3 }}"
-          src="{{ $image3 }}"
-          class="h-32 w-32 object-cover mx-auto"
-        />
+        {{ with $description2 }}
+        <div class="block px-3">
+            {{ with $image2 }}
+            <img
+            alt="{{ $alt2 }}"
+            src="{{ $image2 }}"
+            class="h-32 w-32 object-cover mx-auto"
+            />
+            {{ end }}
+        
+            <h5 class="mt-4 text-lg font-bold text-gray-900 sm:text-xl">
+                {{ $headline2 }} {{ $emoji2 }}
+            </h5>
+        
+            <p class="mt-1 max-w-sm text-sm text-gray-700">
+                {{ $description2 }}
+            </p>
+        </div>
         {{ end }}
-      
-        <h5 class="mt-4 text-lg font-bold text-gray-900 sm:text-xl">
-            {{ $headline3 }} {{ $emoji3 }}
-        </h5>
-      
-        <p class="mt-1 max-w-sm text-sm text-gray-700">
-            {{ $description3 }}
-        </p>
-    </div>
-    {{ end }}
 
-    {{ with $description4 }}
-    <div class="block px-3">
-        {{ with $image4 }}
-        <img
-          alt="{{ $alt4 }}"
-          src="{{ $image4 }}"
-          class="h-32 w-32 object-cover mx-auto"
-        />
+        {{ with $description3 }}
+        <div class="block px-3">
+            {{ with $image3 }}
+            <img
+            alt="{{ $alt3 }}"
+            src="{{ $image3 }}"
+            class="h-32 w-32 object-cover mx-auto"
+            />
+            {{ end }}
+        
+            <h5 class="mt-4 text-lg font-bold text-gray-900 sm:text-xl">
+                {{ $headline3 }} {{ $emoji3 }}
+            </h5>
+        
+            <p class="mt-1 max-w-sm text-sm text-gray-700">
+                {{ $description3 }}
+            </p>
+        </div>
         {{ end }}
-      
-        <h5 class="mt-4 text-lg font-bold text-gray-900 sm:text-xl">
-            {{ $headline4 }} {{ $emoji4 }}
-        </h5>
-      
-        <p class="mt-1 max-w-sm text-sm text-gray-700">
-            {{ $description4 }}
-        </p>
-    </div>
-    {{ end }}
+
+        {{ with $description4 }}
+        <div class="block px-3">
+            {{ with $image4 }}
+            <img
+            alt="{{ $alt4 }}"
+            src="{{ $image4 }}"
+            class="h-32 w-32 object-cover mx-auto"
+            />
+            {{ end }}
+        
+            <h5 class="mt-4 text-lg font-bold text-gray-900 sm:text-xl">
+                {{ $headline4 }} {{ $emoji4 }}
+            </h5>
+        
+            <p class="mt-1 max-w-sm text-sm text-gray-700">
+                {{ $description4 }}
+            </p>
+        </div>
+        {{ end }}
+</div>
 </div>

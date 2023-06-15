@@ -1,8 +1,33 @@
+{{ $avatar := resources.GetMatch .Site.Params.avatar }}
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}</title>
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Site.Title }} | {{ .Title }}{{ end }}</title>
 <meta name="description" content="{{ if .IsPage }}{{ or .Params.description .Summary }}{{ else if .IsHome }}{{ .Site.Params.description }}{{ else if .IsNode }}{{ or .Params.description .Summary }}{{ end }}">
+
+<link rel="apple-touch-icon" sizes="180x180" href="{{ $avatar.RelPermalink }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ $avatar.RelPermalink }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ $avatar.RelPermalink }}">
+<link rel="mask-icon" href="{{ $avatar.RelPermalink }}" color="#2962ff">
+
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta property="og:description" content="{{ if .IsPage }}{{ or .Params.description .Summary }}{{ else if .IsHome }}{{ .Site.Params.description }}{{ else if .IsNode }}{{ or .Params.description .Summary }}{{ end }}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ .Permalink }}">
+{{ with (or .Site.Params.ImageSEO .Params.imageSEO) }}
+<meta name="image" property="og:image" content="{{ if .IsHome }}{{ .Site.Params.ImageSEO }}{{ else }}{{ .Params.imageSEO }}{{ end }}">
+{{ end }}
+
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta property="twitter:description" content="{{ if .IsPage }}{{ or .Params.description .Summary }}{{ else if .IsHome }}{{ .Site.Params.description }}{{ else if .IsNode }}{{ or .Params.description .Summary }}{{ end }}">
+{{ with (or .Site.Params.ImageSEO .Params.imageSEO) }}
+<meta property="twitter:image" content="{{ if .IsHome }}{{ .Site.Params.ImageSEO }}{{ else }}{{ .Params.imageSEO }}{{ end }}">
+{{ end }}
+<meta property="twitter:creator" content="{{ $.Site.Params.tweetHandle }}">
+
 <link rel="canonical" href="{{ .Permalink }}">
 <link rel="robots" href="/robots.txt" />
 

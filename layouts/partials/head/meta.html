@@ -16,15 +16,17 @@
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:locale" content="en_US" />
 <meta property="og:url" content="{{ .Permalink }}">
-<meta name="image" property="og:image" content="{{ if .IsHome }}{{ .Site.Params.imageSEO }}{{ else }}{{ .Params.imageSEO }}{{ end }}">
+<meta property="og:image" content="{{ if .IsHome }}{{ .Site.Params.imageSEO }}{{ else }}{{ .Params.imageSEO }}{{ end }}">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="682">
 
 
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:title" content="{{ if .IsHome }}Amirul Naim{{ else }}{{ .Title }}{{ end }}">
 <meta property="twitter:description" content="{{ if .IsPage }}{{ or .Params.description .Summary }}{{ else if .IsHome }}{{ .Site.Params.description }}{{ else if .IsNode }}{{ or .Params.description .Summary }}{{ end }}">
-<meta property="twitter:image" content="{{ if .IsHome }}{{ .Site.Params.imageSEO }}{{ else }}{{ .Params.imageSEO }}{{ end }}">
-
+{{/*  <meta property="twitter:image" content="{{ if .IsHome }}{{ .Site.Params.imageSEO }}{{ else }}{{ .Params.imageSEO }}{{ end }}">  */}}
 <meta property="twitter:creator" content="{{ $.Site.Params.tweetHandle }}">
+<meta property="twitter:site" content="{{ $.Site.Params.tweetHandle }}">
 
 <link rel="canonical" href="{{ .Permalink }}">
 <link rel="robots" href="/robots.txt" />
